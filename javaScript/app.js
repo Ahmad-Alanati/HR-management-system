@@ -120,5 +120,3 @@ function renderTable(employees){
 
 let employees = employeeGenerator(employeeInformation);
 renderTable(employees);
-
-//console.log(employees);
