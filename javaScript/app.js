@@ -1,58 +1,24 @@
 'use strict';
 
-const employeeInformation =
-    [
-        {
-            "EmployeeID": 1000,
-            "FullName": "Ghazi Samer",
-            "Department": "Administration",
-            "level": "Senior"
-        },
-        {
-            "EmployeeID": 1001,
-            "FullName": "Lana Ali",
-            "Department": "Finance",
-            "level": "Senior"
-        },
-        {
-            "EmployeeID": 1002,
-            "FullName": "Tamara Ayoub",
-            "Department": "Marketing",
-            "level": "Senior"
-        },
-        {
-            "EmployeeID": 1003,
-            "FullName": "Safi Walid",
-            "Department": "Administration",
-            "level": "Mid-Senior"
-        },
-        {
-            "EmployeeID": 1004,
-            "FullName": "Omar Zaid",
-            "Department": "Development",
-            "level": "Senior"
-        },
-        {
-            "EmployeeID": 1005,
-            "FullName": "Rana Saleh",
-            "Department": "Development",
-            "level": "Junior"
-        },
-        {
-            "EmployeeID": 1006,
-            "FullName": "Hadi Ahmad",
-            "Department": "Finance",
-            "level": "Mid-Senior"
-        }
-    ]
+let form = document.getElementById("employeeForm");
+form.addEventListener("submit", formSubmitHandler);
 
 function Employee(employeeInformation) {
-    this.employee_ID = employeeInformation.EmployeeID;
+    this.employee_ID = this.employeeID();
     this.fullName = employeeInformation.FullName;
     this.department = employeeInformation.Department;
     this.level = employeeInformation.level;
-    this.imageURL = null;
+    this.imageURL = employeeInformation.imageURL;
     this.salary = this.salaryGenerator(this.level);
+}
+
+Employee.prototype.employeeID = function () {
+    let ID = this.randomNumberGenerator(0, 9999);
+    let IDString = ID.toString()
+    while (IDString.length < 4) {
+        IDString = "0" + IDString;
+    }
+    return IDString;
 }
 
 Employee.prototype.salaryGenerator = function (level) {
@@ -72,7 +38,7 @@ Employee.prototype.salaryGenerator = function (level) {
 }
 
 Employee.prototype.netSalary = function (salary) {
-    return salary - (salary * 0.075)
+    return salary - (salary * 0.075);
 }
 
 Employee.prototype.randomNumberGenerator = function (min, max) {
@@ -80,43 +46,52 @@ Employee.prototype.randomNumberGenerator = function (min, max) {
 }
 
 Employee.prototype.renderEmployeeInformation = function () {
-    const employeeTable = document.getElementById("employeeTable");
-    employeeTable.innerHTML = employeeTable.innerHTML + `
-    <tr>
-        <th>${this.employee_ID}</th>
-        <th>${this.fullName}</th>
-        <th>${this.department}</th>
-        <th>${this.level}</th>
-        <th>${this.salary}</th>
-    </tr>
-    `;
-    
-    
-}
-
-function employeeGenerator(employeeInformation) {
-    let arrOfObjects = [];
-    for (let employee of employeeInformation) {
-        arrOfObjects.push(new Employee(employee));
+    let section;
+    switch (this.department) {
+        case "Administration":
+            section= document.getElementById("administrationSection");
+            break;
+        case "Marketing":
+            section= document.getElementById("marketingSection");
+            break;
+        case "Development":
+            section= document.getElementById("developmentSection");
+            break;
+        case "Finance":
+            section= document.getElementById("financeSection");
+            break;
     }
-    return arrOfObjects
+    let div = document.createElement("div");
+    let img = document.createElement("img");
+    let p1 = document.createElement("p");
+    let p2 = document.createElement("p");
+    let p3 = document.createElement("p");
+    img.src= this.imageURL;
+    img.alt=`this img should be ${this.fullName} img`;
+    div.appendChild(img);
+    p1.textContent =`Name: ${this.fullName} - ID: ${this.employee_ID}`;
+    p2.textContent =`Department: ${this.department} - Level: ${this.level}`
+    p3.textContent =`Salary: ${this.salary}`
+    div.appendChild(p1);
+    div.appendChild(p2);
+    div.appendChild(p3);
+    div.className="mainSection";
+    section.appendChild(div);
 }
 
-function renderTable(employees){
-    const employeeTable = document.getElementById("employeeTable");
-    employeeTable.innerHTML = `
-    <tr>
-        <th>Employee ID</th>
-        <th>Full Name</th>
-        <th>Department</th>
-        <th>Level</th>
-        <th>Salary</th>
-    </tr>
-    `;
-    for(let employee of employees){
-        employee.renderEmployeeInformation()
+
+function formSubmitHandler(event) {
+    event.preventDefault();
+    let formObject =
+    {
+        "FullName": event.target.fullName.value,
+        "Department": event.target.department.value,
+        "level": event.target.level.value,
+        "imageURL": event.target.imageURL.value,
     }
+    let employee = new Employee(formObject);
+    employee.renderEmployeeInformation();
 }
 
-let employees = employeeGenerator(employeeInformation);
-renderTable(employees);
+//let employees = employeeGenerator(employeeInformation);
+//renderTable(employees);

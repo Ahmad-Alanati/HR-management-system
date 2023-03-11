@@ -21,10 +21,44 @@
     </header>
 
     <main>
-        <table id="employeeTable">
-
-        </table>
-        <script src="./javaScript/app.js"></script>
+        <section id="formSection">
+            <form id="employeeForm" action="">
+                <label for="fullName">Full Name: </label>
+                <input type="text" name="fullName" id="fullName" placeholder="Full Name" required><br/><br/>
+                <label for="department">Department: </label>
+                <select name="department" id="department">
+                    <option value="Administration">Administration</option>
+                    <option value="Marketing">Marketing</option>
+                    <option value="Development">Development</option>
+                    <option value="Finance">Finance</option>
+                </select><br/><br/>
+                <label for="level">Level: </label>
+                <select name="level" id="level">
+                    <option value="Junior">Junior</option>
+                    <option value="Mid-Senior">Mid-Senior</option>
+                    <option value="Senior">Senior</option>
+                </select><br/><br/>
+                <label for="imageURL">Image URL: </label>
+                <input type="text" name="imageURL" id="imageURL" placeholder="Image URL:" required><br/><br/>
+                <input type="submit" value="Submit">
+            </form>
+            <hr/>
+        </section>
+        <section id="administrationSection">
+            <h3>Administration Department Employees</h1><br/>
+        </section>
+        
+        <section id="marketingSection">
+            <h3>marketing Department Employees</h1><br/>
+        </section>
+        
+        <section id="developmentSection">
+            <h3>development Department Employees</h1><br/>
+        </section>
+        
+        <section id="financeSection">
+            <h3>finance Department Employees</h1><br/>
+        </section>
     </main>
 
     <footer>
@@ -38,7 +72,6 @@
         </ul>
         <p>&copy made by ahmad</p>
     </footer>
-
+    <script src="./javaScript/app.js"></script>
 </body>
-
 </html>

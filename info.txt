@@ -1,0 +1,42 @@
+{
+    "EmployeeID": 1000,
+    "FullName": "Ghazi Samer",
+    "Department": "Administration",
+    "level": "Senior"
+},
+{
+    "EmployeeID": 1001,
+    "FullName": "Lana Ali",
+    "Department": "Finance",
+    "level": "Senior"
+},
+{
+    "EmployeeID": 1002,
+    "FullName": "Tamara Ayoub",
+    "Department": "Marketing",
+    "level": "Senior"
+},
+{
+    "EmployeeID": 1003,
+    "FullName": "Safi Walid",
+    "Department": "Administration",
+    "level": "Mid-Senior"
+},
+{
+    "EmployeeID": 1004,
+    "FullName": "Omar Zaid",
+    "Department": "Development",
+    "level": "Senior"
+},
+{
+    "EmployeeID": 1005,
+    "FullName": "Rana Saleh",
+    "Department": "Development",
+    "level": "Junior"
+},
+{
+    "EmployeeID": 1006,
+    "FullName": "Hadi Ahmad",
+    "Department": "Finance",
+    "level": "Mid-Senior"
+}

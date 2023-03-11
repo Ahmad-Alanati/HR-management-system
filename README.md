@@ -17,3 +17,4 @@ INFOEMP is a web site to hellp companies to managing some employees informations
 1. [loops js](https://www.w3schools.com/js/js_loop_for.asp) to konw the best loop to use
 2. [for of](https://www.w3schools.com/js/js_loop_forof.asp)
 3. [DOM Elements](https://www.w3schools.com/js/js_htmldom_elements.asp)
+4. [ID generator](https://www.codemzy.com/blog/random-unique-id-javascript)
