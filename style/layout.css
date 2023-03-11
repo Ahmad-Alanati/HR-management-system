@@ -1,0 +1,64 @@
+:root {
+    --Header-Footer-Color: #f8db85;
+    --Header-Footer-Text-Color:#545151;
+}
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    background-color: var(--Header-Footer-Color);
+    
+    justify-self: flex-end;
+    color: var(--Header-Footer-Text-Color)
+}
+header .nav li,header h2 {
+    padding:1.5%;
+}
+.nav {
+    display: flex;
+    flex-grow: 4;
+    justify-content: space-around;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--Header-Footer-Color);
+    padding:1.5% 1.5% 0% 1.5%;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    color: var(--Header-Footer-Text-Color)
+}
+
+footer h2{
+    font-size: 20px;
+}
+
+#phoneNumber {
+    display: flex;
+    padding-top: 1%;
+}
+
+#phoneNumber h3 {
+    text-align: center;
+    font-size: 16px;
+}
+
+#phoneNumber h4 {
+    text-align: center;
+    padding-left: 1%;
+    font-size: 12px;
+}
+
+
+
+footer p{
+    align-self: center;
+}
