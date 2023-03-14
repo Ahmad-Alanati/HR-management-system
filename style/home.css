@@ -12,11 +12,13 @@ form {
 section {
     display: flex;
     padding-left: 1%;
+    padding-bottom: 1%;
     flex-wrap: wrap;
 }
 
 section img {
     height: 300px;
+    text-align: center;
 }
 
 .mainSection {
